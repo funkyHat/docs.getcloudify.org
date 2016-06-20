@@ -200,9 +200,7 @@ To run Cloudify Manager using an Image:
 
  1. <span id='create-instance'>Create an instance</span> based on the image you've uploaded.
 
-    {{% gsNote %}}
     Make sure you enable inbound traffic from your  security settings in the instance's security group. Port `22` is required for `ssh` access, and ports `80` and `443` are required for HTTP(S) access.
-    {{% /gsNote %}}
 
  1. Make a note of the IP/hostname
 
@@ -215,13 +213,9 @@ To run Cloudify Manager using an Image:
 
  1. In your browser, navigate to http://{your-manager-public-ip}
 
-    {{% gsNote %}}
     The manager VM may take some time to start up, so if it doesn't load immediately don't worry.
-    {{% /gsNote %}}
 
-    {{% gsNote %}}
     If security is enabled, your browser will complain that the TLS/SSL certificate is not valid. Temporarily allow the connection: A new certificate will be generated as part of this setup process.
-    {{% /gsNote %}}
 
  1. If asked, authenticate using `cloudify` as both the username and password.
 
@@ -251,9 +245,7 @@ To run Cloudify Manager using an Image:
     | agents_user                     |           |             | User to be used for accessing agents on VMs. This should be `centos`.                                                                                                                                                                                                   |
     | agents_to_manager_inbound_ports |           |             | Comma separated list of tcp ports to allow from the agents to the manager. This should contain at least: "5671,5672,8101,53229". You are unlikely to need to change this from its default.                                                                                                                                           |
 
-    {{% gsNote %}}
     It is possible to use the contents of an inputs file (if formatted as JSON) directly by pasting them into the "raw" field.
-    {{% /gsNote %}}
 
  1. Once the new deployment is ready, execute the `install` workflow:
     ![CloudifySettings deployment: install workflow]({{< img "manager/image-deploy-run-install.png" >}})
@@ -275,10 +267,8 @@ To run Cloudify Manager using an Image:
     $ cfy use --port 443 --management-ip ${CLOUDIFY_HOST}
     ```
 
-    {{% gsNote title="TLS" %}}
     If you chose one of the `-insecure` master images then use port 80 (the default) instead (in this case the `export` lines above are not required): `$ cfy use --management-ip ${CLOUDIFY_HOST}`.
 
-    {{% /gsNote %}}
 
  1. Create an input file for the `CloudifySettings` blueprint
     ```bash
