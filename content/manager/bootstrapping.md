@@ -271,6 +271,7 @@ To run Cloudify Manager using an Image:
 
 
  1. Create an input file for the `CloudifySettings` blueprint
+
     ```bash
     $ echo >install.yaml <<EOF
     {
